@@ -1,16 +1,17 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from "react";
-import backendURL from "../../common/backendUrl";
+
+import { useState, useEffect } from "react";
+
 import axios from "axios";
-import Cards from "../Components/Cards";
+import Cards from "../Components/Cards.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
-import Pagination from "../Components/Pagination";
+import Pagination from "../Components/Pagination.jsx";
 
 const Recipes = ({type}) => {
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [pagination, setPagination] = useState({
     totalRecipes: 5,
     currentPage: 1,
@@ -31,14 +32,14 @@ const Recipes = ({type}) => {
           },
         });
 
-        const { recipes, pagination: pag } = response.data;
-
+        const { recipes, pagination: pagination } = response.data;     
+          
         setRecipes(recipes);
-        
+     
         setPagination((prev) => ({
           ...prev,
-          totalRecipes: pag.totalRecipes,
-          totalPages: pag.totalPages
+          totalRecipes: pagination.totalRecipes,
+          totalPages: pagination.totalPages
         }));
       } catch (err) {
         console.log(err);
