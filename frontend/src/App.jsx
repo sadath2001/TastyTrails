@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddRecipe from "./Pages/AddRecipe.jsx";
 import OneRecipe from "./Pages/OneRecipe.jsx";
 import UpdateRecipe from "./Pages/UpdateRecipe.jsx";
-
+import NotFound from "./Pages/NotFound.jsx";
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
@@ -64,6 +64,7 @@ function App() {
           <Route path="/user/:id/new/recipe" element={<AddRecipe />} />
           <Route path="/user/:id/update/recipe" element={<UpdateRecipe />} />
           <Route path="/recipe/:id" element={<OneRecipe/>} />
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
