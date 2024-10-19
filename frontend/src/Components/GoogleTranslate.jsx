@@ -52,7 +52,7 @@ const GoogleTranslate = () => {
 
   return (
     <div id="google_element" className="google-translate-container pl-20 md:pl-0">
-      <style jsx>{`
+      <style jsx="true">{`
         .goog-te-combo {
           display: inline-block;
           background-color: white; /* White background */
